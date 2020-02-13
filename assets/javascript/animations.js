@@ -63,7 +63,7 @@ $("#add-comedian").on("click", function (event) {
     event.preventDefault();
     var comedian = $("#gif-input").val().trim();
     comedians.push(comedian);
-    renderbuttons();
+    renderButtons();
     
 });
 
