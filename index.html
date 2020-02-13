@@ -3,93 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!--reset-->
     <link rel="stylesheet" href="assets/css/reset.css">
-    <!--css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Orbitron&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <!--jquery-->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Stand-Up Comedians</title>
 </head>
 <body>
-    <div class="Container">
-        <h1>Add Your Favorite Comedians!</h1>
-        <br>
 
-        <button data-comedian="Larry David">Larry David</button>
-        <button data-comedian="Bill Burr">Bill Burr</button>
-        <button data-comedian="Louis CK">Louie CK</button>
-        <button data-comedian="Nathan Fielder">Nathan Fielder</button>
-        <button data-comedian="Dave Chappell">Dave Chappell</button>
-        <button data-comedian="Kevin Hart">Kevin Hart</button>
-        <button data-comedian="Chris Rock">Chris Rock</button>
-        <button data-comedian="Andy Samberg">Andy Samberg</button>
-        <button data-comedian="Joe Rogan">Joe Rogan</button>
-        <button data-comedian="George Carlin">George Carlin</button>
-        <button data-comedian="Donald Glovar">Donald Glover</button>
-        <button data-comedian="Hannibal Buress">Hannibal Buress</button>
-        <button data-comedian="Russell Brand">Russell Brand</button>
-        <button data-comedian="Aziz Ansari">Aziz Ansari</button>
-        <button data-comedian="Anthony Jeselnik">Anthony Jesilnik</button>
-        <button data-comedian="Robin Williams">Robin Williams</button>
-        <button data-comedian="Chris D'Elia">Chris D'Elia</button>
-        <button data-comedian="Ricky Gervais">Ricky Gervais</button>
-        <button data-comedian="Pete Davidson">Pete Davidson</button>
-        <button data-comedian="Key and Peele">Key & Peele</button>
-      
-      
-        <div id="gifs-appear-here">
-        </div>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script type="text/javascript">
-          // Adding click event listen listener to all buttons
-          $("button").on("click", function() {
-            // Grabbing and storing the data-animal property value from the button
-            var comedian = $(this).attr("data-comedian");
-      
-            // Constructing a queryURL using the animal name
-            var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
-              comedian + "&api_key=BkaUZZWcFij6J7AoQj3WtPb1R2p9O6V9&limit=10";
-      
-            // Performing an AJAX request with the queryURL
-            $.ajax({
-              url: queryURL,
-              method: "GET"
-            })
-              // After data comes back from the request
-              .then(function(response) {
-                console.log(queryURL);
-      
-                console.log(response);
-                // storing the data from the AJAX request in the results variable
-                var results = response.data;
-      
-                // Looping through each result item
-                for (var i = 0; i < results.length; i++) {
-      
-                  // Creating and storing a div tag
-                  var comedianDiv = $("<div>");
-      
-                  // Creating a paragraph tag with the result item's rating
-                  var p = $("<p>").text("Rating: " + results[i].rating);
-      
-                  // Creating and storing an image tag
-                  var comedianImage = $("<img>");
-                  // Setting the src attribute of the image to a property pulled off the result item
-                  comedianImage.attr("src", results[i].images.fixed_height.url);
-      
-                  // Appending the paragraph and image tag to the animalDiv
-                  comedianDiv.append(p);
-                  comedianDiv.append(comedianImage);
-      
-                  // Prependng the animalDiv to the HTML page in the "#gifs-appear-here" div
-                  $("#gifs-appear-here").prepend(comedianDiv);
-                }
-              });
-          });
-        </script> 
-    <!--javascript-->
-    <script type="text/javascript" src="assets/javascript/avengers.js"></script>
-</body>
+  <h1> Best Comedians GIF Generator</h1>
+  <div id="buttondisplay">
+  </div>
+
+  <div id="form">
+    <form id="form-inline"> 
+        <input type="text" placeholder="Type a comedian!" id="gif-input">
+        <input id="add-comedian" type="submit" value="Create Button for GIFS">
+    </form>
+  </div>
+
+  <div id="gifs-appear-here">
+  </div>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="assets/javascript/animations.js"></script>
+
+ </body>
 </html>
+
+   
